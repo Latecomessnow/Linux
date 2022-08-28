@@ -12,7 +12,7 @@ struct Stack
 		_array = (DataType*)malloc(sizeof(DataType) * capacity);
 		if (nullptr == _array)
 		{
-			perror("mallocÉêÇë¿Õ¼äÊ§°Ü");
+			perror("mallocÃ‰ÃªÃ‡Ã«Â¿Ã•Â¼Ã¤ÃŠÂ§Â°Ãœ");
 			return;
 		}
 		_capacity = capacity;
@@ -20,7 +20,7 @@ struct Stack
 	}
 	void Push(const DataType& data)
 	{
-		// À©Èİ
+		// Ã€Â©ÃˆÃ
 		_array[_size] = data; ++_size;
 	}
 	DataType Top()
