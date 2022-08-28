@@ -1,3 +1,2 @@
 # Linux
-
-These code for learning.
+These codes are written during the learning process for study and review.
