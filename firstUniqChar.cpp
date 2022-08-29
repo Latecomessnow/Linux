@@ -3,7 +3,7 @@
 class Solution {
 public:
     int firstUniqChar(string s) {
-        // ´´½¨Ò»¸ö26×ÖÄ¸µÄÊı×é£¬°Ñ×ÖÄ¸³öÏÖ´ÎÊı¼ÇÂ¼ÏÂÀ´
+        // åˆ›å»ºä¸€ä¸ª26å­—æ¯çš„æ•°ç»„ï¼ŒæŠŠå­—æ¯å‡ºç°æ¬¡æ•°è®°å½•ä¸‹æ¥
         int letter[26] = { 0 };
         for (int i = 0; i < s.size(); i++)
         {
