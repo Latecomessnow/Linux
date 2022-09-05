@@ -1,128 +1,31 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 
-#include<iostream>
-using namespace std;
-
-//int main(int argc, char* argv[])
-//
-//{
-//
-//	string a = "hello world";
-//
-//	string b = a;
-//
-//	if (a.c_str() == b.c_str())
-//
-//	{
-//
-//		cout << "true" << endl;
-//
-//	}
-//
-//	else cout << "false" << endl;
-//
-//	string c = b;
-//
-//	c = "";
-//
-//	if (a.c_str() == b.c_str())
-//
-//	{
-//
-//		cout << "true" << endl;
-//
-//	}
-//
-//	else cout << "false" << endl;
-//
-//	a = "";
-//
-//	if (a.c_str() == b.c_str())
-//
-//	{
-//
-//		cout << "true" << endl;
-//
-//	}
-//
-//	else cout << "false" << endl;
-//
-//	return 0;
-//
-//}
-//
-
-//int main()
-//
-//{
-//
-//	string str("Hello Bit.");
-//
-//	str.reserve(111);
-//
-//	//str.resize(5);
-//
-//	//str.reserve(50);
-//
-//	cout << str.size() << ":" << str.capacity() << endl;
-//	cout << str << endl;
-//
-//	return 0;
-//
-//}
-
-int main(int argc, char* argv[])
-{
-	string strText = "How are you?";
-	string strSeparator = " ";
-	string strResult;
-	int size_pos = 0;
-	int size_prev_pos = 0;
-	while ((size_pos = strText.find_first_of(strSeparator, size_pos)) != string::npos)
-	{
-		strResult = strText.substr(size_prev_pos, size_pos - size_prev_pos);
-		cout << strResult << " ";
-		size_prev_pos = ++size_pos;
-	}
-	if (size_prev_pos != strText.size())
-	{
-		strResult = strText.substr(size_prev_pos, size_pos - size_prev_pos);
-		cout << strResult << " ";
-	}
-	cout << endl;
-	return 0;
-}
-
 class Solution {
 public:
-    int StrToInt(string str) {
-        int index = 0, len = str.size(), flag = 1, result = 0;
-        // 跳空格
-        while (str[index] == ' ' && index < len)
-            index++;
-        // 如果第一个字符为+-，处理一下
-        if (str[index] == '+')
-            index++;
-        else if (str[index] == '-')
+    string addStrings(string num1, string num2) {
+        int end1 = num1.size() - 1, end2 = num2.size() - 1;
+        int next = 0, ret = 0;
+        string strRet;
+        // 注意是||不能是&&，因为有可能会遇到999+1这种情况需要不断向前进位
+        while (end1 >= 0 || end2 >= 0)
         {
-            flag = -1;
-            index++;
+            // 注意上边的逻辑是或，下边有可能会越界，越界了置0
+            int val1 = end1 >= 0 ? num1[end1] - '0' : 0;
+            int val2 = end2 >= 0 ? num2[end2] - '0' : 0;
+            ret = val1 + val2 + next;
+            next = ret > 9 ? 1 : 0;
+            // // 头插,逻辑简单，但是效率很低
+            // strRet.insert(strRet.begin(), '0' + ret % 10);
+            // 应使用尾插，然后再逆置
+            strRet += ret % 10 + '0';
+            end1--;
+            end2--;
         }
-        // 循环处理数字字符
-        while (index < len && isdigit(str[index]))
-        {
-            // 把字符转换成数字并加在一起
-            // 还要考虑越的问题，INT_MAX & INT_MIN
-            result = result * 10 + (str[index] - '0');
-            if (result > INT_MAX && flag == 1)
-                return INT_MAX;
-            if (result > INT_MAX && flag == -1)
-                return INT_MIN;
-            index++;
-        }
-        // 走到这有可能是走完字符串了也有可能是遇到字母跳出循环
-        if (index == len)
-            return flag * result;
-        return 0;
+        // 走到这next可能为1，如9+1，插入了字符0，但还少了字符1
+        if (next)
+            //strRet.insert(strRet.begin(), '1');
+            strRet += '1';
+        reverse(strRet.begin(), strRet.end());
+        return strRet;
     }
 };
