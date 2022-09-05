@@ -1,1 +1,2 @@
 D:\Managed Code\cpp\string_simulation\Debug\string_simulation.exe
+D:\Managed Code\Linux(Github)\string_simulation\Debug\string_simulation.exe

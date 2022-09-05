@@ -7,7 +7,7 @@ using std::cin;
 using std::endl;
 using std::swap;
 
-namespace bit
+namespace HuiGu
 {
 	class string
 	{
