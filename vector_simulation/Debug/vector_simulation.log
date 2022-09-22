@@ -1,0 +1,14 @@
+﻿  Test.cpp
+D:\Managed Code\cpp\vector_simulation\vector.h(109,25): warning C4018: “<”: 有符号/无符号不匹配
+D:\Managed Code\cpp\vector_simulation\vector.h(103): message : 在编译 类 模板 成员函数“HuiGu::vector<int *>::vector(int,const T &)”时
+          with
+          [
+              T=int *
+          ]
+D:\Managed Code\cpp\vector_simulation\vector.h(606): message : 查看对正在编译的函数 模板 实例化“HuiGu::vector<int *>::vector(int,const T &)”的引用
+          with
+          [
+              T=int *
+          ]
+D:\Managed Code\cpp\vector_simulation\vector.h(606): message : 查看对正在编译的 类 模板 实例化“HuiGu::vector<int *>”的引用
+  vector_simulation.vcxproj -> D:\Managed Code\cpp\vector_simulation\Debug\vector_simulation.exe
