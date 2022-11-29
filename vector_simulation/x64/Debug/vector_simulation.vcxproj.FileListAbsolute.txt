@@ -1,1 +1,0 @@
-D:\Managed Code\cpp\vector_simulation\x64\Debug\vector_simulation.exe
